@@ -17,17 +17,17 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 * $ cd store-backend
 * $ npm install -g db-migrate
 * $ npm i
-* Create .env file and store the following :
-PG_HOST = { your database host }
-PG_DB = { the name of the database }
-PG_DB_TEST = { the name of the testing database }
-PG_USER = { your user for the database } 
-PG_PASSWORD = { your database password }
-ENV = dev
-BCRYPT_PASSWORD = { write any pass here }
-SALT_ROUNDS = { write any rounds you want }
-TOKEN_SECRET = { write any secret here }
-* $ npm run start
+* Create .env file and write the following : <br>
+PG_HOST = { your database host } <br>
+PG_DB = { the name of the database } <br>
+PG_DB_TEST = { the name of the testing database } <br>
+PG_USER = { your user for the database } <br>
+PG_PASSWORD = { your database password } <br>
+ENV = dev <br>
+BCRYPT_PASSWORD = { write any pass here } <br>
+SALT_ROUNDS = { write any rounds you want } <br>
+TOKEN_SECRET = { write any secret here } <br>
+* $ npm run start 
 
 ### Project script :
 * test : npm run test
