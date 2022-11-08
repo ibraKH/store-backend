@@ -12,11 +12,22 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 * jasmine
 
 ### To start the project :
+##### Note this project only run locally , With local database
 * $ git clone https://github.com/ibraKH/store-backend.git
 * $ cd store-backend
 * $ npm install -g db-migrate
 * $ npm i
-* $ npm run tsc && npm run start
+* Create .env file and store the following :
+PG_HOST = { your database host }
+PG_DB = { the name of the database }
+PG_DB_TEST = { the name of the testing database }
+PG_USER = { your user for the database } 
+PG_PASSWORD = { your database password }
+ENV = dev
+BCRYPT_PASSWORD = { write any pass here }
+SALT_ROUNDS = { write any rounds you want }
+TOKEN_SECRET = { write any secret here }
+* $ npm run start
 
 ### Project script :
 * test : npm run test
