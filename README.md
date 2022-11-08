@@ -12,9 +12,11 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 * jasmine
 
 ### To start the project :
-* $ git clone https://github.com/ibraKH/store-backend
+* $ git clone https://github.com/ibraKH/store-backend.git
 * $ cd store-backend
+* $ npm install -g db-migrate
 * $ npm i
+* $ npm run tsc && npm run start
 
 ### Project script :
 * test : npm run test
@@ -26,15 +28,15 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 ### HTTP routes :
 #### Note : Token can be passed in HTTP header with Bearer Token
 #### Products :
-- index : [http://localhost:3000/products]
+- Show all products (Index) : [http://localhost:3000/products]
 - Search by product id (Show) : [http://localhost:3000/product/:id]
 - Create : [http://localhost:3000/new/product][TOKEN REQUIRED]
 - top 5 products : [http://localhost:3000/products/topfive]
 - Search by catagory id : [http://localhost:3000/products/:catagory]
 #### Users :
-- index : [http://localhost:3000/users][TOKEN REQUIRED]
+- Show all users (Index) : [http://localhost:3000/users][TOKEN REQUIRED]
 - Search by user id (Show) : [http://localhost:3000/user/:id][TOKEN REQUIRED]
 - Create : [http://localhost:3000/new/user][TOKEN REQUIRED]
 #### Orders :
-- index : [http://localhost:3000/orders/:user_id][TOKEN REQUIRED]
-- Search by user id (Show) : [http://localhost:3000/completed/user_id][TOKEN REQUIRED]
+- Current Order by user : [http://localhost:3000/orders/:user_id][TOKEN REQUIRED]
+- Completed Orders by user : [http://localhost:3000/completed/user_id][TOKEN REQUIRED]
