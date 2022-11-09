@@ -23,3 +23,4 @@ app.get('/', (0, cors_1.default)(corsOptions), (req, res) => {
 app.listen(3000, function () {
     console.log(`starting app on: ${address}`);
 });
+exports.default = app;
