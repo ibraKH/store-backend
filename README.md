@@ -51,3 +51,6 @@ TOKEN_SECRET = { write any secret here } <br>
 #### Orders :
 - Current Order by user : [http://localhost:3000/orders/:user_id][TOKEN REQUIRED]
 - Completed Orders by user : [http://localhost:3000/completed/user_id][TOKEN REQUIRED]
+#### tags :
+- Show all tags : [http://localhost:3000/tags]
+- Create new tag : [http://localhost:3000/new/tag][TOKEN REQUIRED]
