@@ -24,24 +24,20 @@ describe("Order Model", () => {
         // create user and product
         await productStore.create({ id: 101, name: 'rain jacket', price: 99, category: "jackets" });
         await userStore.create({ id: 101, fname: "ibrahim", lname: "khalid", password: "randompass" });
-        await store.create({ id: 1, product_id: 101, quantity: 7, user_id: 101, order_status: "active" });
+        await store.create({ id: 1, user_id: 101, order_status: "active" });
         const result = await store.index(101);
         expect(result).toEqual([{
                 id: 1,
-                product_id: 101,
-                quantity: 7,
                 user_id: 101,
                 order_status: "active"
             }]);
     });
     it("Get completed orders by user", async () => {
         // new completed order
-        await store.create({ id: 2, product_id: 101, quantity: 7, user_id: 101, order_status: "complete" });
+        await store.create({ id: 2, user_id: 101, order_status: "complete" });
         const result = await store.completed(101);
         expect(result).toEqual([{
                 id: 2,
-                product_id: 101,
-                quantity: 7,
                 user_id: 101,
                 order_status: "complete"
             }]);

@@ -1,29 +1,14 @@
-import express, { NextFunction, Request , Response } from "express";
+import express, { Request , Response } from "express";
 import { User, UserStore } from "../user";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import authToken from "./auth";
 
 dotenv.config();
 
 const store = new UserStore();
 
 const secretToken : any = process.env.TOKEN_SECRET;
-
-const authToken = (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const authHeader = req.headers.authorization;
-        const token = authHeader?.split(" ")[1];
-        
-        if(token == undefined) return res.status(401).json(`Invalid token`)
-
-        jwt.verify(token, secretToken)
-
-        next()
-    } catch (err) {
-        res.status(401)
-        res.json(`Invalid token : ${err}`)
-    }
-}
 
 const index = async (_req: Request, res: Response) => {
     const result = await store.index();

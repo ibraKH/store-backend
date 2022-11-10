@@ -51,7 +51,7 @@ export class ProductStore {
     async topFive(): Promise<unknown>{
         try{
             const conn = await pool.connect();
-            const sql = 'SELECT id, SUM(quantity) as quantity FROM (SELECT product.id,orders.quantity FROM orders INNER JOIN product ON orders.product_id = product.id) AS topFive GROUP BY id ORDER BY quantity DESC LIMIT 5 OFFSET 0;';
+            const sql = 'SELECT product_id, SUM(quantity) as quantity FROM (SELECT product_id,quantity FROM products_orders) AS topFive GROUP BY product_id ORDER BY quantity DESC LIMIT 5 OFFSET 0;';
             const result = await conn.query(sql);
             conn.release();
             return result.rows;

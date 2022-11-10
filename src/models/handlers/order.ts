@@ -1,29 +1,8 @@
-import express, { NextFunction, Request , Response } from "express";
+import express, { Request , Response } from "express";
 import { Order, OrderStore } from "../order";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-
-dotenv.config();
+import authToken from "./auth";
 
 const store = new OrderStore();
-
-const secretToken : any = process.env.TOKEN_SECRET;
-
-const authToken = (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const authHeader = req.headers.authorization;
-        const token = authHeader?.split(" ")[1];
-        
-        if(token == undefined) return res.status(401).json(`Invalid token`)
-
-        jwt.verify(token, secretToken)
-
-        next()
-    } catch (err) {
-        res.status(401)
-        res.json(`Invalid token : ${err}`)
-    }
-}
 
 const index = async (_req: Request, res: Response) => {
     try{
@@ -53,8 +32,6 @@ const create = async (_req: Request, res: Response) => {
     try{
         const order : Order = {
             id: _req.body.id,
-            product_id: _req.body.product_id,
-            quantity: _req.body.quantity,
             user_id: _req.body.user_id,
             order_status: _req.body.order_status,
         }

@@ -2,8 +2,6 @@ import pool from "../database";
 
 export type Order = {
     id: Number,
-    product_id: Number,
-    quantity: Number,
     user_id: Number,
     order_status: string
 }
@@ -41,8 +39,8 @@ export class OrderStore {
             // Test for duplicate id
             const duplicateID = await conn.query("SELECT * FROM product WHERE id = ($1);", [order.id]); 
             if(duplicateID.rows[0] !== undefined) return 'Duplicate id';
-            const sql = 'INSERT INTO orders (id,product_id,quantity,user_id,order_status) VALUES ($1,$2,$3,$4,$5);';
-            const result = await conn.query(sql, [order.id,order.product_id,order.quantity,order.user_id,order.order_status]);
+            const sql = 'INSERT INTO orders (id,user_id,order_status) VALUES ($1,$2,$3);';
+            const result = await conn.query(sql, [order.id,order.user_id,order.order_status]);
             conn.release();
             return 'Created new order successfully !!';
             } catch (err) {

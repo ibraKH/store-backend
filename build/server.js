@@ -9,6 +9,7 @@ const cors_1 = __importDefault(require("cors"));
 const product_1 = __importDefault(require("./models/handlers/product"));
 const user_1 = __importDefault(require("./models/handlers/user"));
 const order_1 = __importDefault(require("./models/handlers/order"));
+const tag_1 = __importDefault(require("./models/handlers/tag"));
 const app = (0, express_1.default)();
 const address = "0.0.0.0:3000";
 const corsOptions = { origin: "*" };
@@ -20,6 +21,7 @@ app.get('/', (0, cors_1.default)(corsOptions), (req, res) => {
 (0, product_1.default)(app);
 (0, user_1.default)(app);
 (0, order_1.default)(app);
+(0, tag_1.default)(app);
 app.listen(3000, function () {
     console.log(`starting app on: ${address}`);
 });
