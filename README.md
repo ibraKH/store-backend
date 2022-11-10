@@ -29,6 +29,7 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 * migrate down : npm run migrate-down
 
 ### Connecting to DB :
+##### Note the port of the DB is 5432
 ##### You have to connect to DB to use this project , to connect :
 - Download [postgresql](https://www.postgresql.org/download/) if not already downloaded in you machine 
 - Open psql and write your info
