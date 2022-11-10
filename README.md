@@ -9,6 +9,7 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 * Postgres
 * Express
 * jsonwebtoken
+* bcrypt
 * jasmine
 
 ### To start the project :
@@ -17,16 +18,7 @@ this project startup code from Udacity [repo](https://github.com/udacity/nd0067-
 * $ cd store-backend
 * $ npm install -g db-migrate
 * $ npm i
-* Create .env file and write the following : <br>
-PG_HOST = { your database host } <br>
-PG_DB = { the name of the database } <br>
-PG_DB_TEST = { the name of the testing database } <br>
-PG_USER = { your user for the database } <br>
-PG_PASSWORD = { your database password } <br>
-ENV = dev <br>
-BCRYPT_PASSWORD = { write any pass here } <br>
-SALT_ROUNDS = { write any rounds you want } <br>
-TOKEN_SECRET = { write any secret here } <br>
+* Create .env file , Look to Connecting to DB section down below 
 * $ npm run start 
 
 ### Project script :
@@ -36,8 +28,27 @@ TOKEN_SECRET = { write any secret here } <br>
 * migrate up : npm run migrate
 * migrate down : npm run migrate-down
 
+### Connecting to DB :
+##### You have to connect to DB to use this project , to connect :
+- Download [postgresql](https://www.postgresql.org/download/) if not already downloaded in you machine 
+- Open psql and write your info
+- then write this sql : CREATE DATABASE storebackend;
+- also write this sql for testing : CREATE DATABASE storebackend_test;
+- Write \l to display all your databases
+- then write the following in .env file in the project : <br>
+PG_HOST = { your database host } <br>
+PG_DB = { the name of the database } <br>
+PG_DB_TEST = { the name of the testing database } <br>
+PG_USER = { your user for the database } <br>
+PG_PASSWORD = { your database password } <br>
+ENV = dev <br>
+BCRYPT_PASSWORD = { write any pass here } <br>
+SALT_ROUNDS = { write any rounds you want } <br>
+TOKEN_SECRET = { write any secret here } <br>
+
 ### HTTP routes :
-#### Note : Token can be passed in HTTP header with Bearer Token
+##### This project runs on port : 3000 , "localhost:3000"
+##### Note : Token can be passed in HTTP header with Bearer Token
 #### Products :
 - Show all products (Index) : [http://localhost:3000/products]
 - Search by product id (Show) : [http://localhost:3000/product/:id]

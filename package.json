@@ -6,9 +6,9 @@
   "scripts": {
     "start": "nodemon ./build/server.js",
     "migrate": "db-migrate --env test up && db-migrate up",
-    "migrate-down": "db-migrate --env test down && db-migrate down",
+    "migrate-down": "db-migrate --env test reset && db-migrate reset",
     "build": "npx tsc",
-    "test": "set ENV=test&& npx tsc && db-migrate up --env test&& jasmine && db-migrate up --env test",
+    "test": "set ENV=test&& npx tsc && db-migrate up --env test&& jasmine && db-migrate --env test reset",
     "tsc": "tsc"
   },
   "keywords": [],
